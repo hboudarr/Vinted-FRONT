@@ -12,6 +12,7 @@ const Home = () => {
                     "https://lereacteur-vinted-api.herokuapp.com/offers"
                 );
                 setData(response.data);
+
                 setIsLoading(false);
             } catch (error) {
                 console.log({ error: error.message });
@@ -19,17 +20,24 @@ const Home = () => {
         };
         fetchData();
     }, []);
+
     return isLoading ? (
         <div>Chargement en cours</div>
     ) : (
         <div>
-            {data.map((elem, index) => {
-                console.log(elem);
+            {data.offers.map((elem, index) => {
+                // console.log(elem.owner.account.avatar.url);
+                console.log(elem.owner.account.avatar.url);
                 return (
-                    <div>
-                        <span></span>
-                        <span></span>
-                        <img src="" alt="" />
+                    <div className="offers-mini">
+                        <img
+                            src={elem.owner.account.avatar.secure_url}
+                            alt=""
+                        />
+                        <span>{elem.owner.account.username}</span>
+                        <div>
+                            <img src="" alt="" />
+                        </div>
                     </div>
                 );
             })}
