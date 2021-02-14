@@ -25,12 +25,38 @@ const Offer = (props) => {
     return isLoading ? (
         <div>En chargement ...</div>
     ) : (
-        <div>
-            {console.log(data.product_image)}
-            <div>
+        <div className="individual-offer">
+            <div className="left">
+                {console.log(data)}
                 <img src={data.product_image.secure_url} alt="" />
             </div>
-            <div></div>
+            <div className="right">
+                <h1>{data.product_price} €</h1>
+                <div className="details">
+                    {data.product_details.map((elem, index) => {
+                        const keys = Object.keys(elem);
+                        return (
+                            <div className="details2">
+                                <div className="left">{keys[0]}</div>
+                                <div className="right">{elem[keys[0]]}</div>
+                            </div>
+                        );
+                    })}
+                </div>
+                <div className="middle"></div>
+                <div className="down-part">
+                    <h2>{data.product_name}</h2>
+                    <p>{data.product_description}</p>
+                    <div className="owner">
+                        <img
+                            src={data.owner.account.avatar.secure_url}
+                            alt=""
+                        />
+                        <span>{data.owner.account.username}</span>
+                    </div>
+                </div>
+                <button>Acheter</button>
+            </div>
         </div>
     );
 };

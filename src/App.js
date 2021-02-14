@@ -5,15 +5,16 @@ import Cookies from "js-cookie";
 import "./App.scss";
 // import axios from "axios";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faStar, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faSearch, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useHistory } from "react-router-dom";
 import Home from "./containers/Home";
 import Offer from "./containers/Offer";
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
 import Header from "./components/Header";
+import Footer from "./components/Footer";
 
-library.add(faStar, faMinus, faPlus);
+library.add(faSearch, faMinus, faPlus);
 
 function App() {
     const [userToken, setUserToken] = useState();
@@ -40,7 +41,7 @@ function App() {
                 </Route>
 
                 <Route path="/signup">
-                    <Signup />
+                    <Signup setUser={setUser} />
                 </Route>
                 <Route path="/login">
                     <Login setUser={setUser} />
@@ -50,6 +51,7 @@ function App() {
                     <Home />
                 </Route>
             </Switch>
+            <Footer />
         </Router>
     );
 }

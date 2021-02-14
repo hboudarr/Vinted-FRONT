@@ -1,26 +1,374 @@
-/* Other rules */
+// COMMUM RULES
+
+body {
+    font-family: "Roboto", sans-serif;
+}
+.container {
+    width: 1330px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 28px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+//  HEADER
+
 header {
     display: flex;
     justify-content: space-between;
-    background-color: pink;
     height: 70px;
+    img {
+        width: 120px;
+        height: 50px;
+        margin-right: 10px;
+    }
+    .search {
+        border: solid #f5f6f7 1px;
+        border-radius: 4px;
+        width: 630px;
+        height: 40px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        color: #cbcccd;
+        background-color: #f5f6f7;
+    }
+    .header-left {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .header-right {
+        .deco {
+            margin-top: 20px;
+            width: 115px;
+            height: 30px;
+            border: none;
+            border: solid 1px #0cb1ba;
+            border-radius: 5px;
+            color: #0cb1ba;
+            background-color: white;
+        }
+    }
+
+    .button {
+        display: flex;
+        margin-top: 25px;
+        a {
+            margin-right: 20px;
+            text-decoration: none;
+            text-align: center;
+            justify-content: center;
+        }
+        button {
+            width: 115px;
+            height: 30px;
+            border: none;
+            border: solid 1px #0cb1ba;
+            border-radius: 5px;
+            color: #0cb1ba;
+            background-color: white;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+
+        .last {
+            background-color: #0cb1ba;
+            border-radius: 5px;
+            margin-left: 30px;
+            button {
+                width: 120px;
+                height: 30px;
+                color: white;
+                background-color: #0cb1ba;
+            }
+        }
+    }
+    .button .left {
+        margin-right: 20px;
+    }
 }
+
+// HERO
+
+.hero {
+    display: flex;
+    margin-bottom: 50px;
+    .button-hero {
+        width: 410px;
+        height: 270px;
+        background-color: white;
+        position: absolute;
+        margin: 40px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        padding: 10px;
+        border-radius: 5px;
+    }
+    img {
+        width: 1440px;
+        height: 360px;
+        object-fit: cover;
+    }
+    .button-hero button {
+        width: 190px;
+        height: 50px;
+        font-size: 16px;
+        color: white;
+        margin-top: 50px;
+        background-color: #0cb1ba;
+        border-radius: 5px;
+        border: none;
+    }
+    .button-hero button:hover {
+        cursor: pointer;
+    }
+}
+
+// SIGN-UP // SIGN-IN
+
+.sign {
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        h1 {
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+        input {
+            margin-bottom: 20px;
+            width: 280px;
+            height: 40px;
+            border: none;
+            border-bottom: rgb(243, 187, 187) solid 1px;
+        }
+        button {
+            margin-top: 20px;
+            width: 275px;
+            height: 50px;
+            font-size: 16px;
+            color: white;
+            background-color: #0cb1ba;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .newsletter {
+            width: 290px;
+            height: 125px;
+            input {
+                width: 15px;
+                height: 15px;
+                margin-left: 20px;
+                margin-top: 40px;
+                cursor: pointer;
+            }
+            span {
+                font-size: 16px;
+                color: #666666;
+            }
+            p {
+                font-size: 12px;
+                color: #9999;
+                text-align: justify;
+                margin-bottom: 20px;
+            }
+        }
+        a {
+            text-decoration: none;
+            margin-top: 30px;
+            color: #0cb1ba;
+            font-size: 12px;
+        }
+    }
+}
+
+// HOME
 
 .home {
     display: flex;
     flex-wrap: wrap;
-    .avatar img {
-        width: 40px;
-        height: 40px;
-        object-fit: cover;
-        border-radius: 50%;
+    text-decoration: none;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    a {
+        text-decoration: none;
+        margin-right: 10px;
+        margin-bottom: 20px;
     }
-    .pics img {
-        width: 240px;
-        height: 360px;
-        object-fit: cover;
+    .avatar {
+        display: flex;
+        span {
+            margin-top: 10px;
+            margin-left: 10px;
+            font-size: 12px;
+            color: #9999;
+        }
+        img {
+            width: 30px;
+            height: 30px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
     }
-    .offer:hover {
-        cursor: pointer;
+    .pics {
+        img {
+            width: 240px;
+            height: 360px;
+            object-fit: cover;
+        }
+    }
+    .offer {
+        text-decoration: none;
+        :hover {
+            cursor: pointer;
+        }
+    }
+    .infos {
+        span {
+            font-size: 14px;
+            color: black;
+        }
+        ul span {
+            color: #9999;
+            font-size: 12px;
+        }
     }
 }
+
+// OFFER
+
+.individual-offer {
+    box-sizing: border-box;
+    background-color: #eaedee;
+    height: 650px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    img {
+        width: 450px;
+        height: 600px;
+    }
+    .right {
+        width: 400px;
+        height: 600px;
+        background-color: #fff;
+        h1 {
+            padding: 40px;
+        }
+        .details {
+            display: flex;
+            display: inline;
+            .details2 {
+                display: flex;
+                .left {
+                    width: calc(100% / 2);
+                    height: 100%;
+                    font-size: 14px;
+                    color: #9999;
+                    margin-left: 10px;
+                    margin-bottom: 10px;
+                }
+                .right {
+                    width: calc(100% / 2);
+                    height: 100%;
+                    font-size: 14px;
+                    color: grey;
+                }
+            }
+        }
+        .middle {
+            width: 100%;
+            height: 1px;
+            background-color: #6666;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+        .down-part {
+            h2 {
+                padding: 20px;
+            }
+            p {
+                padding: 20px;
+                font-size: 14px;
+                color: #999;
+            }
+            .owner {
+                display: flex;
+                padding: 20px;
+                img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    margin-right: 20px;
+                    object-fit: cover;
+                }
+                span {
+                    margin-top: 20px;
+                }
+            }
+        }
+        button {
+            border: none;
+            width: 320px;
+            height: 46px;
+            background-color: #0cb1ba;
+            color: white;
+            border-radius: 5px;
+            margin-left: 40px;
+            font-size: 16px;
+        }
+        button:hover {
+            cursor: pointer;
+        }
+    }
+}
+
+//  FOOTER
+
+footer {
+    background-color: #ededed;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 30px;
+    }
+    div {
+        margin-left: 10px;
+    }
+    .lien:hover {
+        cursor: pointer;
+    }
+    a {
+        color: blue;
+    }
+}
+
+// footer img {
+// }
+
+// footer div {
+//     margin-left: 10px;
+// }
+
+// footer .lien:hover {
+//     cursor: pointer;
+// }
+
+// footer a {
+//     color: blue;
+// }

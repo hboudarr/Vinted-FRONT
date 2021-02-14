@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Login = ({ setUser }) => {
     const [email, setEmail] = useState();
@@ -24,24 +25,25 @@ const Login = ({ setUser }) => {
         history.push("/");
     };
     return (
-        <div>
+        <div className="sign">
             <form onSubmit={handleSubmit}>
-                {" "}
+                <h1>Se connecter</h1>
                 <input
                     type="Email"
-                    placeholder="Email"
+                    placeholder="Adresse email"
                     onChange={(event) => {
                         setEmail(event.target.value);
                     }}
                 />
                 <input
-                    type="Password"
-                    placeholder="Password"
+                    type="password"
+                    placeholder="Mot de passe"
                     onChange={(event) => {
                         setPassword(event.target.value);
                     }}
                 />
                 <button type="Submit">Se connecter</button>
+                <Link to="/signup">Pas encore de compte ? inscrit toi !</Link>
             </form>
         </div>
     );
