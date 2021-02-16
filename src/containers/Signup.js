@@ -15,7 +15,7 @@ const Signup = ({ setUser }) => {
         event.preventDefault();
         // requete axios pour enregistrer dans la bdd le new utilisateur
         const response = await axios.post(
-            "hhttps://lereacteur-vinted-api.herokuapp.com/user/signup",
+            "https://vinted-bdr.herokuapp.com//user/signup",
             {
                 email: email,
                 username: userName,
@@ -23,6 +23,16 @@ const Signup = ({ setUser }) => {
                 password: password,
             }
         );
+
+        // const response = await axios.post(
+        //     "hhttps://lereacteur-vinted-api.herokuapp.com/user/signup",
+        //     {
+        //         email: email,
+        //         username: userName,
+        //         phone: phone,
+        //         password: password,
+        //     }
+        // );
         setUser(response.data.token);
 
         history.push("/");

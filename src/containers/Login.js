@@ -13,12 +13,21 @@ const Login = ({ setUser }) => {
         event.preventDefault();
         // requite axios pour check si il existe
         const response = await axios.post(
-            "https://lereacteur-vinted-api.herokuapp.com/user/login",
+            "https://vinted-bdr.herokuapp.com/user/login",
             {
                 email: email,
                 password: password,
             }
         );
+
+        // const response = await axios.post(
+        //     "https://lereacteur-vinted-api.herokuapp.com/user/login",
+        //     {
+        //         email: email,
+        //         password: password,
+        //     }
+        // );
+
         const token = response.data.token;
         setUser(token);
         // naviguer vers la home page
