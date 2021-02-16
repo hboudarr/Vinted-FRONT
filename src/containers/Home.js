@@ -10,14 +10,14 @@ const Home = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await axios.get(
-                    "https://vinted-bdr.herokuapp.com/offers"
-                );
                 // const response = await axios.get(
-                //     "https://lereacteur-vinted-api.herokuapp.com/offers"
+                //     "https://vinted-bdr.herokuapp.com/offers"
                 // );
+                const response = await axios.get(
+                    "https://lereacteur-vinted-api.herokuapp.com/offers"
+                );
                 setData(response.data);
-
+                console.log(data);
                 setIsLoading(false);
             } catch (error) {
                 console.log({ error: error.message });
@@ -32,6 +32,7 @@ const Home = () => {
         <div>
             <Hero />
             <div className="home container">
+                {console.log(data)}
                 {data.offers.map((elem, index) => {
                     return (
                         <Link to={`/offer/${elem._id}`}>
@@ -51,7 +52,6 @@ const Home = () => {
 
                                     <span>{elem.owner.account.username}</span>
                                 </div>
-
                                 <div className="pics">
                                     <img
                                         src={
