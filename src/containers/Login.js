@@ -4,9 +4,11 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 
 const Login = ({ setUser }) => {
+    // login state
     const [email, setEmail] = useState();
     const [password, setPassword] = useState();
 
+    // history state
     const history = useHistory();
 
     const handleSubmit = async (event) => {
@@ -30,7 +32,7 @@ const Login = ({ setUser }) => {
 
         const token = response.data.token;
         setUser(token);
-        // naviguer vers la home page
+        // go to the home page
         history.push("/");
     };
     return (

@@ -1,16 +1,20 @@
+// import package
 import axios from "axios";
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
+
+// import link
 import { Link } from "react-router-dom";
 
 const Signup = ({ setUser }) => {
+    // states for input form
     const [userName, setUserName] = useState();
     const [email, setEmail] = useState();
-    const [phone, setPhone] = useState();
     const [password, setPassword] = useState();
 
     const history = useHistory();
 
+    // On form submit behaviors :
     const handleSubmit = async (event) => {
         event.preventDefault();
         // requete axios pour enregistrer dans la bdd le new utilisateur
@@ -24,12 +28,12 @@ const Signup = ({ setUser }) => {
         //     }
         // );
 
+        // axios's request sign up form
         const response = await axios.post(
             "https://lereacteur-vinted-api.herokuapp.com/user/signup",
             {
                 email: email,
                 username: userName,
-                phone: phone,
                 password: password,
             }
         );
@@ -40,6 +44,7 @@ const Signup = ({ setUser }) => {
 
     return (
         <div className="sign">
+            {/* FORM */}
             <form onSubmit={handleSubmit}>
                 <h1>S'inscrire</h1>
                 <input
@@ -56,13 +61,6 @@ const Signup = ({ setUser }) => {
                     type="email"
                     placeholder="Email"
                 />
-                {/* <input
-                    onChange={(event) => {
-                        setPhone(event.target.value);
-                    }}
-                    type="text"
-                    placeholder="Numero de téléphone"
-                /> */}
                 <input
                     onChange={(event) => {
                         setPassword(event.target.value);

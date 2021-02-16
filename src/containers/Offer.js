@@ -1,10 +1,14 @@
+// import package
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-const Offer = (props) => {
+const Offer = () => {
+    // data, longding state
     const [data, setData] = useState({});
     const [isLoading, setIsLoading] = useState(true);
+
+    //
     const { id } = useParams();
 
     useEffect(() => {

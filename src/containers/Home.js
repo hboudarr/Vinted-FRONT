@@ -1,12 +1,19 @@
+// package import
 import axios from "axios";
 import { useState, useEffect } from "react";
+
+// link import
 import { Link } from "react-router-dom";
+
+// component import
 import Hero from "../components/Hero";
 
 const Home = () => {
+    // states
     const [data, setData] = useState({});
     const [isLoading, setIsLoading] = useState(true);
 
+    // data refrech
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -16,28 +23,30 @@ const Home = () => {
                 const response = await axios.get(
                     "https://lereacteur-vinted-api.herokuapp.com/offers"
                 );
+                // set Data, and isLoading falsy
                 setData(response.data);
-                console.log(data);
                 setIsLoading(false);
             } catch (error) {
                 console.log({ error: error.message });
             }
         };
         fetchData();
-    }, []);
+    }, []); // tableau vide pour evider la boucle infini (page offer by id : id)
 
     return isLoading ? (
         <div>Chargement en cours</div>
     ) : (
         <div>
+            {/* component import */}
             <Hero />
             <div className="home container">
-                {console.log(data)}
                 {data.offers.map((elem, index) => {
                     return (
+                        // offer link by id from the home page
                         <Link to={`/offer/${elem._id}`}>
                             <div onClick={() => {}} className="offer">
                                 <div className="avatar">
+                                    {/* Owner info */}
                                     {elem.owner.account.avatar.secure_url ? (
                                         <img
                                             src={
@@ -52,6 +61,7 @@ const Home = () => {
 
                                     <span>{elem.owner.account.username}</span>
                                 </div>
+                                {/* Product pics */}
                                 <div className="pics">
                                     <img
                                         src={
@@ -60,15 +70,13 @@ const Home = () => {
                                         alt=""
                                     />
                                 </div>
+                                {/* product details */}
                                 <div className="infos">
-                                    {" "}
                                     <span> {elem.product_price} € </span>
                                     <ul>
                                         {elem.product_details.map(
                                             (elem, index) => {
                                                 const keys = Object.keys(elem);
-                                                // console.log(elem.marque);
-                                                console.log(elem.MARQUE);
                                                 return (
                                                     <li>
                                                         {elem.TAILLE ? (

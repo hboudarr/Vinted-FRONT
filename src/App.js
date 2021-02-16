@@ -1,56 +1,69 @@
-// import { useState, useEffect } from "react";
+// Package import
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
+
+// CSS import
 import "./App.scss";
-// import axios from "axios";
+
+// fontAwesome import
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faSearch, faMinus, faPlus } from "@fortawesome/free-solid-svg-icons";
-import { useHistory } from "react-router-dom";
+
+// container import
 import Home from "./containers/Home";
 import Offer from "./containers/Offer";
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
+
+// component import
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+// lib Awesome
 library.add(faSearch, faMinus, faPlus);
 
+// MAIN FUNCTION
 function App() {
+    // token state
     const [userToken, setUserToken] = useState();
 
     const setUser = (token) => {
         if (token) {
-            //creer un cookie
+            // create cookie
             Cookies.set("userToken", token, { expires: 7 });
-            // mettre a jour le state userToken
+            // update token state
             setUserToken(token);
         } else {
-            // supprimer le cookier quand l'utilisateur se deconnecte
+            // delete cookier when sign out
             Cookies.remove("userToken");
-            // mettre a jour le state token
+            // update token state
             setUserToken(null);
         }
     };
     return (
         <Router>
+            {/* HEADER COMPONENT */}
             <Header userToken={userToken} setUser={setUser} />
             <Switch>
+                {/* OFFER BY ID CONTAINER*/}
                 <Route path="/offer/:id">
                     <Offer />
                 </Route>
-
+                {/* SIGN UP CONTAINER */}
                 <Route path="/signup">
                     <Signup setUser={setUser} />
                 </Route>
+                {/* LOGIN CONTAINER */}
                 <Route path="/login">
                     <Login setUser={setUser} />
                 </Route>
-
+                {/* HOME CONTAINER */}
                 <Route path="/">
                     <Home />
                 </Route>
             </Switch>
+            {/* FOOTER COMPONENT */}
             <Footer />
         </Router>
     );
