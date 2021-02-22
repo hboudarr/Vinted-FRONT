@@ -15,6 +15,7 @@ import Home from "./containers/Home";
 import Offer from "./containers/Offer";
 import Login from "./containers/Login";
 import Signup from "./containers/Signup";
+import Publish from "./containers/Publish";
 
 // component import
 import Header from "./components/Header";
@@ -58,9 +59,12 @@ function App() {
                 <Route path="/login">
                     <Login setUser={setUser} />
                 </Route>
+                <Route path="/publish">
+                    <Publish />
+                </Route>
                 {/* HOME CONTAINER */}
                 <Route path="/">
-                    <Home />
+                    <Home userToken={userToken} />
                 </Route>
             </Switch>
             {/* FOOTER COMPONENT */}
